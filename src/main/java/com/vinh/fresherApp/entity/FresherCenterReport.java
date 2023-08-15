@@ -1,4 +1,4 @@
-package com.vinh.fresherApp;
+package com.vinh.fresherApp.entity;
 
 public class FresherCenterReport {
 	

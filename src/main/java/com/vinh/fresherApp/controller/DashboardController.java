@@ -1,4 +1,4 @@
-package com.vinh.fresherApp;
+package com.vinh.fresherApp.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,6 +7,12 @@ import java.util.Optional;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.vinh.fresherApp.entity.CompanyCenter;
+import com.vinh.fresherApp.entity.FresherCenterReport;
+import com.vinh.fresherApp.entity.FresherReportScore;
+import com.vinh.fresherApp.repository.CenterRepository;
+import com.vinh.fresherApp.repository.FresherRepository;
 
 @RestController
 public class DashboardController {
@@ -18,7 +24,7 @@ public class DashboardController {
 		this.centerRepository = centerRepository;
 	}
 	
-	@GetMapping("/dashboard/scores")
+	@GetMapping("api/dashboard/scores")
 	public List<FresherReportScore> getFresherReportScore(){
 		List<Object[]> result = fresherRepository.findGroupByFresherWithScore();
 		List<FresherReportScore> fresherReportScores = new ArrayList<>();
@@ -29,7 +35,7 @@ public class DashboardController {
 		return fresherReportScores;
 	}
 	
-	@GetMapping("/dashboard/centers")
+	@GetMapping("api/dashboard/centers")
 	public List<FresherCenterReport> getFresherReportCenter(){
 		List<Object[]> result = fresherRepository.findGroupByFresherWithCenter();
 		List<FresherCenterReport> fresherCenterReports = new ArrayList<>();
